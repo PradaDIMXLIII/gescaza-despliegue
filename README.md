@@ -1,5 +1,7 @@
 # GESCAZA
 
-Práctica DIM XLIII
+## Práctica DIM XLIII
 
-Gestión Caza
+Gestión personal de Caza: eventos
+
+**Autor**: MIGUEL PRADA MUÑOZ
