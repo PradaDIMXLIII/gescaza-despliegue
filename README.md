@@ -2,7 +2,7 @@
 
 ## Práctica DIM XLIII
 
-Gestión personal de Caza: eventos
+Gestión de eventos de la caza deportiva.
 
 **Autor**: MIGUEL PRADA MUÑOZ
 
