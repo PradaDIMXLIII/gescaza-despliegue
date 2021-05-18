@@ -1,0 +1,154 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/"><fa-icon class="fa-2x"  [icon]='faHome'></fa-icon></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="menu collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <div class="dropdown">
+        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Enlaces
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <a class="dropdown-item" target="_blank" href="https://www.fecaza.com">Federación</a>
+          <a class="dropdown-item" target="_blank" href="http://laadministracionaldia.inap.es">Normativa</a>
+          <a class="dropdown-item" target="_blank" href="https://revistajaraysedal.es">Jara y Sedal</a>
+          <a class="dropdown-item" target="_blank" href="https://www.trofeocaza.com">Trofeo caza</a>
+          <a class="dropdown-item" target="_blank" href="https://aemet.es">Meteorología</a>
+        </div>
+      </div>
+      <div class="dropdown ml-2">
+        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Gestión del Cazador
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Cazador</a>
+          <a class="dropdown-item" routerLink="#!">Armas</a>
+          <a class="dropdown-item" routerLink="#!">Seguro</a>
+          <a class="dropdown-item" routerLink="#!">Vehículo</a>
+          <a class="dropdown-item dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tarjeta de Invitación</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" routerLink="#!">Alta</a>
+              <a class="dropdown-item" routerLink="#!">Consulta</a>
+              <a class="dropdown-item" routerLink="#!">Baja</a>
+              <a class="dropdown-item" routerLink="#!">Modificación</a>
+            </div>
+        </div>
+      </div>
+      <div class="dropdown ml-2">
+        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Núcleo Cinológico
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Perro</a>
+        </div>
+      </div>
+      <div class="dropdown ml-2">
+        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Notificaciones
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Notificación</a>
+        </div>
+      </div>
+      <div class="dropdown ml-2">
+        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Eventos de Caza
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Alta</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Consulta</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Baja</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Modificación</a>
+        </div>
+      </div>
+      <div class="dropdown ml-2">
+        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Eventos de Competición
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Alta</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Consulta</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Baja</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Modificación</a>
+        </div>
+      </div>
+      <div class="dropdown ml-2">
+        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Eventos de Ocio-cultura
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Alta</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Consulta</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Baja</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Modificación</a>
+        </div>
+      </div>
+      <div class="dropdown ml-2">
+        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Acerca de
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Info</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Condiciones de Uso</a>
+          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Protección de Datos</a>
+        </div>
+      </div>
+      <li class="nav-item">
+        <a class="nav-link disabled" routerLink="#">Disabled</a>
+      </li>
+    </ul>
+     <!-- Button trigger modal -->
+     <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalAutenticacion">
+      Login
+    </button>
+  </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalAutenticacion" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-danger">Autenticación Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="formGroupExampleInput text-primary">Usuario:</label>
+                  <input type="text" class="form-control" [(ngModel)]="user" name="usuario" placeholder="mpramun" autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput2 text-primary">Password:</label>
+                  <input type="password" class="form-control" [(ngModel)]="passwd" name="contraseña" placeholder="examen" >
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <!-- <p>{{ user }}</p>
+              <p>{{ passwd }}</p> -->
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)='autenticar()'>Autenticar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</nav>
