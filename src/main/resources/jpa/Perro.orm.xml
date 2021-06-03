@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+			     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
+			     				     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+			     version="1.0">
+
+    <mapped-superclass class="es.prada.cazador.Perro" access="FIELD">
+        <attributes>
+            <basic name="chip" optional="false"></basic>
+            <one-to-many name="vacunas" target-entity="es.mde.gescaza.entidades.VacunaConId" mapped-by="perro">
+            </one-to-many>
+            <!-- <transient name="vacunas"/> -->
+        </attributes>
+     </mapped-superclass>
+</entity-mappings>

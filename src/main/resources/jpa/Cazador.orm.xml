@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+			     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
+			     				     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+			     version="1.0">
+
+    <mapped-superclass class="es.prada.cazador.Cazador" access="FIELD">
+        <attributes>
+            <basic name="numSocio" optional="false"></basic>
+            <basic name="cotoCaza" optional="false">
+                <column length="32"/>
+            </basic>
+            <basic name="clubDeportivo" optional="false">
+                <column length="32"/>
+            </basic>
+            <basic name="observaciones" optional="false"></basic>
+            <one-to-many name="armas" target-entity="es.mde.gescaza.entidades.ArmaConId" mapped-by="cazador">
+            	<!--<join-column name="armas"/>-->
+            </one-to-many>
+            <one-to-many name="tarjetas" target-entity="es.mde.gescaza.entidades.TarjetaInvCazaConId" mapped-by="cazador">
+            	<!-- <join-column name="tarjetas"/> -->
+            </one-to-many>
+            <one-to-one name="nucleoCinologico" target-entity="es.mde.gescaza.entidades.NucleoCinologicoConId">
+            	<join-column name="nucleoCinologico"/>
+            </one-to-one>
+        </attributes>
+     </mapped-superclass>
+</entity-mappings>
