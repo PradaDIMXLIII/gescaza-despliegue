@@ -1,5 +1,6 @@
 package es.mde.gescaza.entidades;
 
+import java.time.Instant;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -15,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import es.prada.cazador.NivelAdiestramiento;
 import es.prada.cazador.Perro;
 import es.prada.cazador.Vacuna;
@@ -29,6 +32,13 @@ public class PerroConId extends Perro {
 	private String id;
 
 	private String observacionesPerro;
+	private String nombrePerro;
+	
+	@Override
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss[.SSS][.SS][.S]", timezone = "UTC")
+	public Instant getFechaNacimiento() {
+		return super.getFechaNacimiento();
+	}
 
 	@Enumerated(EnumType.STRING)
 	private NivelAdiestramiento nivelAdiestramiento;
@@ -61,6 +71,14 @@ public class PerroConId extends Perro {
 
 	public String getId() {
 		return id;
+	}
+
+	public String getNombrePerro() {
+		return nombrePerro;
+	}
+
+	public void setNombrePerro(String nombrePerro) {
+		this.nombrePerro = nombrePerro;
 	}
 
 	public PerroConId() {

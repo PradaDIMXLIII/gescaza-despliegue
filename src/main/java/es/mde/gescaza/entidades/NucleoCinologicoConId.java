@@ -24,7 +24,7 @@ public class NucleoCinologicoConId extends NucleoCinologico {
 	@Column(unique = true)
 	private String id;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "nucleoCinologico")
 	private CazadorConId cazador;
 	
 	@Override

@@ -1,6 +1,5 @@
 package es.mde.gescaza;
 
-
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 import java.lang.reflect.Method;
@@ -32,6 +31,13 @@ import org.springframework.web.filter.CorsFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import es.mde.gescaza.entidades.ArmaConId;
+import es.mde.gescaza.entidades.CazadorConId;
+import es.mde.gescaza.entidades.PerroConId;
+import es.mde.gescaza.entidades.TarjetaInvCazaConId;
+import es.mde.gescaza.rest.ArmaController;
+import es.mde.gescaza.rest.Mixins;
+import es.mde.gescaza.rest.TarjetaController;
 
 @Configuration
 @PropertySource({ "classpath:config/rest.properties" })
@@ -41,7 +47,8 @@ public class ConfiguracionPorJava {
 	public ObjectMapper getObjectMapper() {
 
 		ObjectMapper mapper = new ObjectMapper();
-		//mapper.addMixIn(Cliente.class, Mixins.Cliente.class);
+		mapper.addMixIn(CazadorConId.class, Mixins.CazadorConId.class);
+		mapper.addMixIn(PerroConId.class, Mixins.PerroConId.class);
 
 		return mapper;
 	}
@@ -50,7 +57,8 @@ public class ConfiguracionPorJava {
 	RepresentationModelProcessor<RepositorySearchesResource> addSearchLinks(RepositoryRestConfiguration config) {
 		Map<Class<?>, Class<?>> controllersRegistrados = new HashMap<>();
 
-		//controllersRegistrados.put(Cliente.class, ClienteController.class);
+		controllersRegistrados.put(ArmaConId.class, ArmaController.class);
+		controllersRegistrados.put(TarjetaInvCazaConId.class, TarjetaController.class);
 
 		return new RepresentationModelProcessor<RepositorySearchesResource>() {
 
@@ -85,7 +93,7 @@ public class ConfiguracionPorJava {
 
 		};
 
-	}  
+	}
 
 	@Bean
 	CorsFilter corsFilter() {

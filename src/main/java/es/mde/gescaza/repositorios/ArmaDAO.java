@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import es.mde.gescaza.entidades.ArmaConId;
 
 @RepositoryRestResource(path = "armas", itemResourceRel = "arma", collectionResourceRel = "armas")
-public interface ArmaDAO extends JpaRepository<ArmaConId, String>{
+public interface ArmaDAO extends JpaRepository<ArmaConId, String>, ArmaDAOCustom {
 	
 	@RestResource(path = "arma-por-nombre")
 	List<ArmaConId> findBynombreIgnoreCaseContaining(@Param("nombre") String nombre);
