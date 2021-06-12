@@ -1,0 +1,158 @@
+<form #cazadorForm="ngForm">
+  <div class="form-row py-2">
+      <div class="col-lg-4 col-md-12">
+          <label>Nombre: <sup class="text-danger">*</sup></label>
+          <input type="text" class="form-control" [(ngModel)]="cazador.nombre" placeholder="Nombre Cazador" name="pers"
+            required minlength="3" #pers="ngModel" [ngClass]="{
+              'is-invalid': pers.invalid && (pers.dirty || pers.touched),
+              'is-valid': !pers.invalid
+            }" />
+            <div class="text-danger" *ngIf="pers.invalid && (pers.dirty || pers.touched)">
+                <div *ngIf="pers.errors.required">
+                  El Nombre del Personaje es obligatorio
+                </div>
+                <div *ngIf="pers.errors.minlength">
+                  El Nombre del Personaje debe tener al menos 3
+                </div>
+            </div>
+      </div>
+
+    <div class="col-lg-4 col-md-12">
+        <label>Apellidos: <sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" [(ngModel)]="cazador.apellidos" placeholder="Apellidos Cazador" name="apellidos"
+        required minlength="3" #apellidos="ngModel" [ngClass]="{
+          'is-invalid': apellidos.invalid && (apellidos.dirty || apellidos.touched),
+          'is-valid': !apellidos.invalid
+        }" />
+        <div class="text-danger" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)">
+              <div *ngIf="apellidos.errors.required">
+                Los apellidos del Cazador son obligatorios
+              </div>
+              <div *ngIf="apellidos.errors.minlength">
+                Los apellidos del Cazador deben tener al menos 3
+              </div>
+        </div>
+  </div>
+
+  <div class="col-lg-4 col-md-12">
+      <label>Dni: <sup class="text-danger">*</sup></label>
+      <input type="text" class="form-control" [(ngModel)]="cazador.dni" placeholder="Dni Cazador" name="dni"
+      required minlength="8" #dni="ngModel" [ngClass]="{
+        'is-invalid': dni.invalid && (dni.dirty || dni.touched),
+        'is-valid': !dni.invalid
+      }" />
+      <div class="text-danger" *ngIf="dni.invalid && (dni.dirty || dni.touched)">
+          <div *ngIf="dni.errors.required">
+            El DNI del Cazador es obligatorio
+          </div>
+          <div *ngIf="dni.errors.minlength">
+            El DNI del Cazador debe tener al menos 8
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+        <label>Num Socio: <sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" [(ngModel)]="cazador.numSocio" placeholder="Numero Socio" name="numS"
+        required minlength="1" #numS="ngModel" [ngClass]="{
+          'is-invalid': numS.invalid && (numS.dirty || numS.touched),
+          'is-valid': !numS.invalid
+        }" />
+        <div class="text-danger" *ngIf="numS.invalid && (dni.dirty || numS.touched)">
+              <div *ngIf="numS.errors.required">
+                El num de socio del Cazador es obligatorio
+              </div>
+              <div *ngIf="numS.errors.minlength">
+                El num de socio del Cazador debe tener al menos 1
+              </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-12">
+        <label>Coto Caza: <sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" [(ngModel)]="cazador.cotoCaza" placeholder="Coto Caza" name="coto"
+        required minlength="8" #coto="ngModel" [ngClass]="{
+          'is-invalid': coto.invalid && (coto.dirty || coto.touched),
+          'is-valid': !coto.invalid
+        }" />
+        <div class="text-danger" *ngIf="coto.invalid && (coto.dirty || coto.touched)">
+              <div *ngIf="coto.errors.required">
+                El Coto de Caza del Cazador es obligatorio
+              </div>
+              <div *ngIf="coto.errors.minlength">
+                El Coto de Caza del Cazador debe tener al menos 8
+              </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-12">
+        <label>Club Deportivo: <sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" [(ngModel)]="cazador.clubDeportivo" placeholder="Club Deportivo" name="club"
+        required minlength="5" #club="ngModel" [ngClass]="{
+          'is-invalid': club.invalid && (club.dirty || club.touched),
+          'is-valid': !club.invalid
+        }" />
+        <div class="text-danger" *ngIf="club.invalid && (club.dirty || club.touched)">
+              <div *ngIf="club.errors.required">
+                El Club Deportivo del Cazador es obligatorio
+              </div>
+              <div *ngIf="club.errors.minlength">
+                El Club Deportivo del Cazador debe tener al menos 5
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-row py-2">
+      <div class="col-lg-4 col-md-12">
+          <label>Obervaciones: <sup class="text-danger">*</sup></label>
+          <input type="text" class="form-control" [(ngModel)]="cazador.observaciones" placeholder="Observaciones del cazador" name="obs"
+          required minlength="5" #obs="ngModel" [ngClass]="{
+            'is-invalid': obs.invalid && (obs.dirty || obs.touched),
+            'is-valid': !obs.invalid
+          }" />
+          <div class="text-danger" *ngIf="obs.invalid && (obs.dirty || obs.touched)">
+                <div *ngIf="obs.errors.required">
+                  Las Observaciones del Cazador son obligatorias
+                </div>
+                <div *ngIf="obs.errors.minlength">
+                  Las Observaciones del Cazador debe tener al menos 5
+                </div>
+          </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12">
+        <label for="validationServer02">Fecha Nacimiento: <sup class="text-danger"></sup></label>
+        <input type="text" class="form-control" [(ngModel)]="cazador.fechaNacimiento" placeholder="dd-MM-yyyy HH:mm:ss.000.00.0"
+          minlength="28" maxlength="28" required name="fechNac" #fechNac="ngModel" [ngClass]="{
+            'is-invalid': fechNac.invalid && (fechNac.dirty || fechNac.touched),
+            'is-valid': !fechNac.invalid
+          }" />
+          <div class="text-danger" *ngIf="fechNac.invalid && (fechNac.dirty || fechNac.touched)">
+              <div *ngIf="fechNac.errors.required">
+                La Fecha de Nacimiento es obligatorio
+              </div>
+              <div *ngIf="fechNac.errors.minlength && fechNac.errors.maxlength">
+                La fecha de nacimiento debe tener 5 Caracteres
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <div class="form-row justify-content-between pt-5">
+        <div class="col-lg-5 col-md-12">
+          <button class="btn btn-primary" *ngIf="boton; else modificar" role="button" (click)="create()"
+            [disabled]="!cazadorForm.form.valid">
+            Crear Cazador
+          </button>
+          <ng-template #modificar>
+            <button class="btn btn-primary" role="button" (click)="actualizar()" [disabled]="!cazadorForm.form.valid">
+              Actualizar
+            </button>
+          </ng-template>
+        </div>
+    </div>
+
+</form>

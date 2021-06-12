@@ -99,7 +99,8 @@ public class ConfiguracionPorJava {
 	CorsFilter corsFilter() {
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		final CorsConfiguration config = new CorsConfiguration();
-		config.setAllowCredentials(true);
+		//para solucionar errores con el Cors, poner a false
+		config.setAllowCredentials(false);
 		config.setAllowedOrigins(Collections.singletonList("*"));
 		config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept"));
 		config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "OPTIONS", "DELETE", "PATCH"));

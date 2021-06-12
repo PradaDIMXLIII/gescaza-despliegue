@@ -9,7 +9,7 @@ public class Mixins {
 	
 	// crear interfaz estatica por cada clase que vayamos a insertar un Mixin
 
-		@JsonPropertyOrder({ "nombre", "apellidos", "dni", "fechaNacimiento",
+		@JsonPropertyOrder({"nombre", "apellidos", "dni", "fechaNacimiento",
 			"numSocio", "cotoCaza", "clubDeportivo", "tarjetas", "armas", "nucleoCinologico",
 			"observaciones"})
 		public static interface CazadorConId {

@@ -1,0 +1,18 @@
+<div class="p-2 m-1 card">
+  <div class="card-header">
+    <fa-icon class="fa-2x" [icon]='faUser'></fa-icon>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title text-success"><b>{{cazador.numSocio}}</b></h4>
+    <p class="card-text"><b>
+      {{cazador.nombre | uppercase}} &nbsp;{{cazador.apellidos}}</b>
+    </p>
+    <p class="card-text">Coto Caza:&nbsp;{{cazador.cotoCaza | uppercase}}
+    </p>
+    <a class="p-1 m-1 btn btn-primary" data-toggle="modal"
+    data-target="#modalCazador" (click)='seleccionarCazador(cazador)'>Consultar Datos</a>
+  </div>
+</div>
+
+
+

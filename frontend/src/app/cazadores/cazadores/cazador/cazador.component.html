@@ -1,0 +1,101 @@
+<!-- <div class="card" data-toggle="modal"
+data-target="#modalCazador" (click)='cazadorSeleccionado.emit(cazador)'> -->
+<div class="card">
+  <div class="card-header">
+    <fa-icon class="fa-2x" [icon]='faUser'></fa-icon>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title text-success"><b>{{cazador.numSocio}}</b></h4>
+    <p class="card-text"><b>
+      {{cazador.nombre | uppercase}} &nbsp;{{cazador.apellidos}}</b>
+    </p>
+    <p class="card-text">Coto Caza:&nbsp;{{cazador.cotoCaza | uppercase}}</p>
+    <p class="card-text">Dni:&nbsp;{{ cazador.dni }}</p>
+    <p class="card-text">Fecha Nacimiento:&nbsp; {{ cogerFechaNacimiento() }} </p>
+    <p class="card-text">Club Deportivo:&nbsp;{{ cazador.clubDeportivo }}</p>
+    <p class="card-text">Observaciones:&nbsp;{{ cazador.observaciones }}</p>
+    <hr class='w-100 bg-success'>
+    <p>
+      <button class="p-1 m-1 btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseArmas" aria-expanded="false" aria-controls="collapseExample">
+        Armas
+      </button>
+      <button class="p-1 m-1 btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTarjetas" aria-expanded="false" aria-controls="collapseExample">
+        Tarjetas
+      </button>
+      <button class="p-1 m-1 btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseNucleoCinologico" aria-expanded="false" aria-controls="collapseExample">
+        Nucleo Cinologico
+      </button>
+    </p>
+    <div class="collapse" id="collapseArmas">
+      <div class="card-group" *ngIf="armas; else noHayArmas">
+        <div *ngFor="let arma of armas">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title"><b>Armas</b></h4>
+                <h4 class="card-title">{{arma.descripcion | uppercase }}</h4>
+                <p class="card-text">{{arma.guia}}</p>
+                <p class="card-text">{{arma.descripcion}}</p>
+                <p class="card-text">{{arma.calibre}}</p>
+              </div>
+            </div>
+        </div>
+        <ng-template #noHayArmas>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title"><b>NO EXISTEN</b> "ARMAS"</h4>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="collapse" id="collapseTarjetas">
+      <div class="card-group" *ngIf="tarjetas; else noHayTarjetas">
+
+        <div *ngFor="let tarjeta of tarjetas">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title"><b>Tarjetas Invitación Caza</b></h4>
+                <h4 class="card-title">{{ tarjeta.nombre | uppercase }}</h4>
+                <p class="card-text">Coto Caza:&nbsp;{{ tarjeta.cotoCaza}}</p>
+                <p class="card-text">Fecha Vencimiento:&nbsp;{{ tarjeta.fechaVencimiento}}</p>
+                <p class="card-text">Num. Invitaciones:&nbsp;{{ tarjeta.numInvitaciones}}</p>
+              </div>
+            </div>
+        </div>
+        <ng-template #noHayTarjetas>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title"><b>NO EXISTEN</b> "TARJETAS de Invitación de Caza"</h4>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="collapse" id="collapseNucleoCinologico" *ngIf="nucleoCinologico; else noHay">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><b>Núcleo Cinológico</b></h4>
+            <p class="card-text">Num. Registro:&nbsp;{{nucleoCinologico.numRegistro}}</p>
+            <p class="card-text">Nombre:&nbsp;{{nucleoCinologico.nombre | uppercase}}</p>
+          </div>
+        </div>
+        <ng-template #noHay>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title"><b>NO EXISTE</b> "Núcleo Cinológico"</h4>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+
+
+    <!-- <a class="p-1 m-1 btn btn-primary" [routerLink]="['/nucleoCinologico', cazador.nucleoCinologicoHref]">Núcleo Cinológico</a>
+    <a class="p-1 m-1 btn btn-primary" [routerLink]="['/armas', cazador.armasHref]">Armas</a>
+    <a class="p-1 m-1 btn btn-primary" [routerLink]="['/tarjetas', cazador.tarjetasHref]">Tarjetas</a> -->
+  </div>
+</div>
+
+<button type="button" class="p-1 m-1 btn btn-outline-danger" (click)="eliminar()">Eliminar</button>
+<button type="button" class="p-1 m-1 btn btn-outline-secondary" (click)="editar()">Editar</button>

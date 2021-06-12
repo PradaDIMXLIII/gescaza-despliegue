@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
   }
 
   autenticar(): void {
-    this.isAutenticado = !this.servicioAutenticacion.autenticar(this.user, this.passwd);
+    //this.isAutenticado = !this.servicioAutenticacion.autenticar(this.user, this.passwd);
   }
 
 }
