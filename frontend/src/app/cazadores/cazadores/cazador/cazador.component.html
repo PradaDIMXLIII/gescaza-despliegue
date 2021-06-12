@@ -27,7 +27,7 @@ data-target="#modalCazador" (click)='cazadorSeleccionado.emit(cazador)'> -->
       </button>
     </p>
     <div class="collapse" id="collapseArmas">
-      <div class="card-group" *ngIf="armas; else noHayArmas">
+      <div class="card-group" *ngIf="armas; else elseBlock">
         <div *ngFor="let arma of armas">
             <div class="card">
               <div class="card-body">
@@ -39,7 +39,7 @@ data-target="#modalCazador" (click)='cazadorSeleccionado.emit(cazador)'> -->
               </div>
             </div>
         </div>
-        <ng-template #noHayArmas>
+        <ng-template #elseBlock>
           <div class="card">
             <div class="card-body">
               <h4 class="card-title"><b>NO EXISTEN</b> "ARMAS"</h4>
@@ -50,7 +50,7 @@ data-target="#modalCazador" (click)='cazadorSeleccionado.emit(cazador)'> -->
     </div>
 
     <div class="collapse" id="collapseTarjetas">
-      <div class="card-group" *ngIf="tarjetas; else noHayTarjetas">
+      <div class="card-group" *ngIf="tarjetas; else elseBlock">
 
         <div *ngFor="let tarjeta of tarjetas">
             <div class="card">
@@ -63,7 +63,7 @@ data-target="#modalCazador" (click)='cazadorSeleccionado.emit(cazador)'> -->
               </div>
             </div>
         </div>
-        <ng-template #noHayTarjetas>
+        <ng-template #elseBlock>
           <div class="card">
             <div class="card-body">
               <h4 class="card-title"><b>NO EXISTEN</b> "TARJETAS de Invitación de Caza"</h4>
@@ -73,7 +73,7 @@ data-target="#modalCazador" (click)='cazadorSeleccionado.emit(cazador)'> -->
       </div>
     </div>
 
-    <div class="collapse" id="collapseNucleoCinologico" *ngIf="nucleoCinologico; else noHay">
+    <div class="collapse" id="collapseNucleoCinologico" *ngIf="nucleoCinologico; else elseBlock">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title"><b>Núcleo Cinológico</b></h4>
@@ -81,7 +81,7 @@ data-target="#modalCazador" (click)='cazadorSeleccionado.emit(cazador)'> -->
             <p class="card-text">Nombre:&nbsp;{{nucleoCinologico.nombre | uppercase}}</p>
           </div>
         </div>
-        <ng-template #noHay>
+        <ng-template #elseBlock>
           <div class="card">
             <div class="card-body">
               <h4 class="card-title"><b>NO EXISTE</b> "Núcleo Cinológico"</h4>
