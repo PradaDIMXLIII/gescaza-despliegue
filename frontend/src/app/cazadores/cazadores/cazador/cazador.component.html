@@ -72,23 +72,24 @@ data-target="#modalCazador" (click)='cazadorSeleccionado.emit(cazador)'> -->
       </ng-template>
     </div>
 
-    <div class="collapse" id="collapseNucleoCinologico" *ngIf="nucleoCinologico; else elseNucleo">
-        <div class="card">
+    <div class="collapse" id="collapseNucleoCinologico">
+        <div class="card" *ngIf="nucleoCinologico; else elseNucleo">
           <div class="card-body">
             <h4 class="card-title"><b>Núcleo Cinológico</b></h4>
             <p class="card-text">Num. Registro:&nbsp;{{nucleoCinologico.numRegistro}}</p>
             <p class="card-text">Nombre:&nbsp;{{nucleoCinologico.nombre | uppercase}}</p>
           </div>
         </div>
-      <ng-template #elseNucleo>
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title"><b>NO EXISTE</b> "Núcleo Cinológico"</h4>
+        <ng-template #elseNucleo>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title"><b>NO EXISTE</b> "Núcleo Cinológico"</h4>
+            </div>
           </div>
-        </div>
-      </ng-template>
+        </ng-template>
+    </div>
+
   </div>
-</div>
 </div>
 
 <button type="button" class="p-1 m-1 btn btn-outline-danger" (click)="eliminar()">Eliminar</button>
