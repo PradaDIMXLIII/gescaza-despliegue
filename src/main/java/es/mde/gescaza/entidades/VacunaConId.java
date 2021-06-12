@@ -23,7 +23,7 @@ public class VacunaConId extends Vacuna {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
-	private String id;
+	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "perro")
@@ -44,7 +44,7 @@ public class VacunaConId extends Vacuna {
 		this.perro = perro;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 

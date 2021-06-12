@@ -22,7 +22,7 @@ public class NucleoCinologicoConId extends NucleoCinologico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
-	private String id;
+	private Long id;
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "nucleoCinologico")
 	private CazadorConId cazador;
@@ -33,7 +33,7 @@ public class NucleoCinologicoConId extends NucleoCinologico {
 		return super.getAnimales();
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 

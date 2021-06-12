@@ -19,13 +19,13 @@ public class ArmaConId extends Arma {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
-	private String id;
+	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cazador")
 	private CazadorConId cazador;
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 

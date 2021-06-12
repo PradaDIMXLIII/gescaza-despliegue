@@ -29,7 +29,7 @@ public class CazadorConId extends Cazador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
-	private String id;
+	private Long id;
 
 	@Override
 	@OneToMany(targetEntity = ArmaConId.class)
@@ -56,12 +56,8 @@ public class CazadorConId extends Cazador {
 		return super.getNucleoCinologico();
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public CazadorConId() {

@@ -29,7 +29,7 @@ public class PerroConId extends Perro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
-	private String id;
+	private Long id;
 
 	private String observacionesPerro;
 	private String nombrePerro;
@@ -69,7 +69,7 @@ public class PerroConId extends Perro {
 		this.nucleoCinologico = nucleoCinologico;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 

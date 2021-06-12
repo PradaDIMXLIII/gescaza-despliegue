@@ -22,7 +22,7 @@ public class TarjetaInvCazaConId extends TarjetaInvCaza {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true)
-	private String id;
+	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cazador")
@@ -42,7 +42,7 @@ public class TarjetaInvCazaConId extends TarjetaInvCaza {
 		this.cazador = cazador;
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
