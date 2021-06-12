@@ -1,6 +1,3 @@
-import { Arma } from "./arma";
-import { NucleoCinologico } from "./nucleo-cinologico";
-import { Tarjeta } from "./tarjeta";
 
 export interface Cazador {
   id: string;

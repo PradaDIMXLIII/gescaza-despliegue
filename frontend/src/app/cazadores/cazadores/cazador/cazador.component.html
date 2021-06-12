@@ -27,7 +27,7 @@ data-target="#modalCazador" (click)='cazadorSeleccionado.emit(cazador)'> -->
       </button>
     </p>
     <div class="collapse" id="collapseArmas">
-      <div class="card-group" *ngIf="armas; else elseArmas">
+      <div class="card-group" *ngIf="armas.length != 0; else elseArmas">
         <div *ngFor="let arma of armas">
             <div class="card">
               <div class="card-body">
@@ -50,7 +50,7 @@ data-target="#modalCazador" (click)='cazadorSeleccionado.emit(cazador)'> -->
     </div>
 
     <div class="collapse" id="collapseTarjetas">
-      <div class="card-group" *ngIf="tarjetas; else elseTarjetas">
+      <div class="card-group" *ngIf="tarjetas.length != 0; else elseTarjetas">
         <div *ngFor="let tarjeta of tarjetas">
             <div class="card">
               <div class="card-body">
