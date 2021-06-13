@@ -25,8 +25,8 @@
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 				<!-- <prop key="hibernate.show_sql">true</prop> -->
 				<!-- create-drop para eliminar las tablas y crear -->
-				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
-				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+				<!-- <prop key="hibernate.hbm2ddl.auto">create-drop</prop> -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
 			</props>
 		</property>
