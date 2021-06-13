@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import es.mde.gescaza.entidades.PerroConId;
 
 @RepositoryRestResource(path = "perros", itemResourceRel = "perro", collectionResourceRel = "perros")
-public interface PerroDAO extends JpaRepository<PerroConId, String>{
+public interface PerroDAO extends JpaRepository<PerroConId, Long>{
 	
 	@RestResource(path = "perro-por-chip")
 	List<PerroConId> findBychipIgnoreCaseContaining(@Param("chip") String chip);

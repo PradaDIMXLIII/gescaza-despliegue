@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import es.mde.gescaza.entidades.VacunaConId;
 
 @RepositoryRestResource(path = "vacunas", itemResourceRel = "vacuna", collectionResourceRel = "vacunas")
-public interface VacunaDAO extends JpaRepository<VacunaConId, String>{
+public interface VacunaDAO extends JpaRepository<VacunaConId, Long>{
 	
 	@RestResource(path = "vacuna-renovada")
 	List<VacunaConId> findByrenovada(@Param("isRenovada") Boolean renovada);

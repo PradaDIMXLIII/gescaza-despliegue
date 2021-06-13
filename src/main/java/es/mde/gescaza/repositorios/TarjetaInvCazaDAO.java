@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import es.mde.gescaza.entidades.TarjetaInvCazaConId;
 
 @RepositoryRestResource(path = "tarjetas", itemResourceRel = "tarjeta", collectionResourceRel = "tarjetas")
-public interface TarjetaInvCazaDAO extends JpaRepository<TarjetaInvCazaConId, String> {
+public interface TarjetaInvCazaDAO extends JpaRepository<TarjetaInvCazaConId, Long> {
 	
 	@RestResource(path = "tarjeta-por-cotoCaza")
 	List<TarjetaInvCazaConId> findBycotoCazaIgnoreCaseContaining(@Param("nombre") String cotoCaza);
