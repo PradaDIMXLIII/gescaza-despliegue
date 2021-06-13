@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import es.mde.gescaza.entidades.NucleoCinologicoConId;
 
 @RepositoryRestResource(path = "nucleocinologicos", itemResourceRel = "nucleocinologico", collectionResourceRel = "nucleocinologicos")
-public interface NucleoCinologicoDAO extends JpaRepository<NucleoCinologicoConId, String> {
+public interface NucleoCinologicoDAO extends JpaRepository<NucleoCinologicoConId, Long> {
 
 	@RestResource(path = "nucleo-por-numRegistro")
 	List<NucleoCinologicoConId> findBynumRegistroIgnoreCaseContaining(@Param("nombre") String nombre);
