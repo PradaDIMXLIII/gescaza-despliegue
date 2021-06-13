@@ -74,7 +74,7 @@ export class CazadorService {
     );
   }
 
-  delete(id: string): Observable<Cazador> {
+  delete(id: number): Observable<Cazador> {
     return this.http
       .delete<Cazador>(`${this.urlEndPoint}/${id}`)
       .pipe(
@@ -103,7 +103,7 @@ export class CazadorService {
       );
   }
 
-  getCazador(id:string): Observable<Cazador> {
+  getCazador(id: number): Observable<Cazador> {
     return this.http.get<Cazador>(`${this.urlEndPoint}/${id}`).pipe(
       catchError((e) => {
         if (e.status !== 401 && e.error.mensaje) {

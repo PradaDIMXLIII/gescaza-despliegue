@@ -20,7 +20,7 @@ export class CazadorFormComponent implements OnInit {
       console.log('estoy en cargarCazador');
       this.boton = false;
       let id: string = this.cargarCazador();
-      this.cazadorService.getCazador(id).subscribe(response =>
+      this.cazadorService.getCazador(Number(id)).subscribe(response =>
        this.cazador = this.cazadorService.mapearCazador(response));
     }
   }

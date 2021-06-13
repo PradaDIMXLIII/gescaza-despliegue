@@ -34,7 +34,7 @@ export class CazadoresComponent implements OnInit {
 
   onCazadorEliminar(cazador: Cazador): void {
     console.log(`He eliminado a ${cazador.nombre}`);
-    this.cazadorService.delete(cazador.id).subscribe(response =>
+    this.cazadorService.delete(Number(cazador.id)).subscribe(response =>
       console.log(response));
     this.router.navigate(['']);
   }
