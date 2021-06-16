@@ -3,7 +3,7 @@
       <div class="col-lg-4 col-md-12">
           <label>Nombre: <sup class="text-danger">*</sup></label>
           <input type="text" class="form-control" [(ngModel)]="cazador.nombre" placeholder="Nombre Cazador" name="pers"
-            required minlength="3" #pers="ngModel" [ngClass]="{
+            required minlength="3" maxlength="20" #pers="ngModel" [ngClass]="{
               'is-invalid': pers.invalid && (pers.dirty || pers.touched),
               'is-valid': !pers.invalid
             }" />
@@ -20,7 +20,7 @@
     <div class="col-lg-4 col-md-12">
         <label>Apellidos: <sup class="text-danger">*</sup></label>
         <input type="text" class="form-control" [(ngModel)]="cazador.apellidos" placeholder="Apellidos Cazador" name="apellidos"
-        required minlength="3" #apellidos="ngModel" [ngClass]="{
+        required minlength="3" maxlength="32" #apellidos="ngModel" [ngClass]="{
           'is-invalid': apellidos.invalid && (apellidos.dirty || apellidos.touched),
           'is-valid': !apellidos.invalid
         }" />
@@ -37,7 +37,7 @@
   <div class="col-lg-4 col-md-12">
       <label>Dni: <sup class="text-danger">*</sup></label>
       <input type="text" class="form-control" [(ngModel)]="cazador.dni" placeholder="Dni Cazador" name="dni"
-      required minlength="8" #dni="ngModel" [ngClass]="{
+      required minlength="8" maxlength="10" #dni="ngModel" [ngClass]="{
         'is-invalid': dni.invalid && (dni.dirty || dni.touched),
         'is-valid': !dni.invalid
       }" />
@@ -55,14 +55,14 @@
 <div class="form-row py-2">
     <div class="col-lg-4 col-md-12">
         <label>Num Socio: <sup class="text-danger">*</sup></label>
-        <input type="text" class="form-control" [(ngModel)]="cazador.numSocio" placeholder="Numero Socio" name="numS"
-        required minlength="1" #numS="ngModel" [ngClass]="{
+        <input type="number" class="form-control" [(ngModel)]="cazador.numSocio" placeholder="Numero Socio" name="numS"
+        required minlength="1" maxlength="5" #numS="ngModel" [ngClass]="{
           'is-invalid': numS.invalid && (numS.dirty || numS.touched),
           'is-valid': !numS.invalid
         }" />
         <div class="text-danger" *ngIf="numS.invalid && (dni.dirty || numS.touched)">
               <div *ngIf="numS.errors.required">
-                El num de socio del Cazador es obligatorio
+                Debe ser un dato numérico y es obligatorio
               </div>
               <div *ngIf="numS.errors.minlength">
                 El num de socio del Cazador debe tener al menos 1
@@ -73,7 +73,7 @@
     <div class="col-lg-4 col-md-12">
         <label>Coto Caza: <sup class="text-danger">*</sup></label>
         <input type="text" class="form-control" [(ngModel)]="cazador.cotoCaza" placeholder="Coto Caza" name="coto"
-        required minlength="8" #coto="ngModel" [ngClass]="{
+        required minlength="8" maxlength="32" #coto="ngModel" [ngClass]="{
           'is-invalid': coto.invalid && (coto.dirty || coto.touched),
           'is-valid': !coto.invalid
         }" />
@@ -90,7 +90,7 @@
     <div class="col-lg-4 col-md-12">
         <label>Club Deportivo: <sup class="text-danger">*</sup></label>
         <input type="text" class="form-control" [(ngModel)]="cazador.clubDeportivo" placeholder="Club Deportivo" name="club"
-        required minlength="5" #club="ngModel" [ngClass]="{
+        required minlength="5" maxlength="32" #club="ngModel" [ngClass]="{
           'is-invalid': club.invalid && (club.dirty || club.touched),
           'is-valid': !club.invalid
         }" />
@@ -109,7 +109,7 @@
       <div class="col-lg-4 col-md-12">
           <label>Obervaciones: <sup class="text-danger">*</sup></label>
           <input type="text" class="form-control" [(ngModel)]="cazador.observaciones" placeholder="Observaciones del cazador" name="obs"
-          required minlength="5" #obs="ngModel" [ngClass]="{
+          required minlength="5" maxlength="32" #obs="ngModel" [ngClass]="{
             'is-invalid': obs.invalid && (obs.dirty || obs.touched),
             'is-valid': !obs.invalid
           }" />
@@ -125,8 +125,8 @@
 
       <div class="col-lg-4 col-md-12">
         <label for="validationServer02">Fecha Nacimiento: <sup class="text-danger"></sup></label>
-        <input type="text" class="form-control" [(ngModel)]="cazador.fechaNacimiento" placeholder="dd-MM-yyyy HH:mm:ss.000.00.0"
-          minlength="28" maxlength="28" required name="fechNac" #fechNac="ngModel" [ngClass]="{
+        <input type="date" class="form-control" [(ngModel)]="cazador.fechaNacimiento" placeholder="dd-MM-yyyy HH:mm:ss.000.00.0"
+          minlength="10" maxlength="10" required name="fechNac" #fechNac="ngModel" [ngClass]="{
             'is-invalid': fechNac.invalid && (fechNac.dirty || fechNac.touched),
             'is-valid': !fechNac.invalid
           }" />

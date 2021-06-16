@@ -34,19 +34,23 @@ export class CazadoresComponent implements OnInit {
 
   onCazadorEliminar(cazador: Cazador): void {
     console.log(`He eliminado a ${cazador.nombre}`);
-    this.cazadorService.delete(cazador.id).subscribe(response =>
-      console.log(response));
-    this.router.navigate(['']);
+    this.cazadorService.delete(cazador.id).subscribe(response => {
+      //console.log(response);
+      this.router.navigate(['cazadores']);
+      location.reload();
+    }
+    );
   }
 
-  nuevoCazador():void {
+  nuevoCazador(): void {
     //cuando es un nuevo cazador se el pasa como parámetro y valor de id la letra N
     this.router.navigate(['cazadores/formulario/N']);
   }
 
   onCazadorEditar(cazador: Cazador): void {
     let url = `cazadores/formulario/${cazador.id}`;
-    console.log(url);
+    //console.log(url);
+    //location.reload();
     this.router.navigate([url]);
   }
 
