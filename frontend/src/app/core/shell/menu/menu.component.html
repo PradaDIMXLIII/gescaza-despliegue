@@ -1,59 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" routerLink="/"><fa-icon class="fa-2x"  [icon]='faHome'></fa-icon></a>
+  <!-- <a class="navbar-brand" routerLink="/"><fa-icon class="fa-2x"  [icon]='faHome'></fa-icon></a> -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="menu collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <div class="dropdown">
-        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
-                type="button" id="dropdownMenu1" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-          Enlaces
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <a class="dropdown-item" target="_blank" href="https://www.fecaza.com">Federación</a>
-          <a class="dropdown-item" target="_blank" href="http://laadministracionaldia.inap.es">Normativa</a>
-          <a class="dropdown-item" target="_blank" href="https://revistajaraysedal.es">Jara y Sedal</a>
-          <a class="dropdown-item" target="_blank" href="https://www.trofeocaza.com">Trofeo caza</a>
-          <a class="dropdown-item" target="_blank" href="https://aemet.es">Meteorología</a>
-        </div>
-      </div>
       <div class="dropdown ml-2">
-        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
+        <!-- class="dropdown-toggle" -->
+        <button class="btn btn-info" [ngClass]= "{'disabled': isAutenticado}"
                 type="button" id="dropdownMenu1" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+                aria-haspopup="true" aria-expanded="false" routerLink="cazadores" routerLinkActive="router-link-active">
           Gestión del Cazador
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <a class="dropdown-item" routerLink="cazadores" routerLinkActive="router-link-active">Cazador</a>
-          <a class="dropdown-item" routerLink="#!">Armas</a>
+        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <a class="dropdown-item" routerLink="cazadores" routerLinkActive="router-link-active">Cazador</a> -->
+          <!-- <a class="dropdown-item" routerLink="#!">Armas</a>
           <a class="dropdown-item" routerLink="#!">Seguro</a>
           <a class="dropdown-item" routerLink="#!">Vehículo</a>
-          <a class="dropdown-item" routerLink="#!">Tarjeta de Invitación</a>
-        </div>
+          <a class="dropdown-item" routerLink="#!">Tarjeta de Invitación</a> -->
+        <!-- </div> -->
       </div>
+
       <div class="dropdown ml-2">
-        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
+        <button class="btn btn-info" [ngClass]= "{'disabled': isAutenticado}"
                 type="button" id="dropdownMenu1" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-          Gestión Núcleo Cinológico
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Núcleo Cinológico</a>
-          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Perro</a>
-        </div>
-      </div>
-      <div class="dropdown ml-2">
-        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
-                type="button" id="dropdownMenu1" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+                aria-haspopup="true" aria-expanded="false" routerLink="/" routerLinkActive="router-link-active">
           Gestión de Notificaciones
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Notificaciones</a>
-        </div>
       </div>
+
       <div class="dropdown ml-2">
         <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
                 type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -61,29 +36,15 @@
           Gestión de Eventos
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Caza</a>
+          <a class="dropdown-item" routerLink="eventoscaza" routerLinkActive="router-link-active">Caza</a>
           <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Competición</a>
           <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Ocio-Cultural</a>
         </div>
       </div>
-      <div class="dropdown ml-2">
-        <button class="btn btn-info dropdown-toggle" [ngClass]= "{'disabled': isAutenticado}"
-                type="button" id="dropdownMenu1" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-          Acerca de
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Info</a>
-          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Condiciones de Uso</a>
-          <a class="dropdown-item" routerLink="#" routerLinkActive="router-link-active">Protección de Datos</a>
-        </div>
-      </div>
-      <li class="nav-item">
-        <!-- <a class="nav-link disabled" routerLink="#">Disabled</a> -->
-      </li>
+
     </ul>
      <!-- Button trigger modal -->
-     <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalAutenticacion">
+     <button type="button" class="btn btn-success btn-lg disabled" data-toggle="modal"> <!--data-target="#modalAutenticacion"> -->
       Login
     </button>
   </div>
@@ -120,3 +81,33 @@
         </div>
       </div>
 </nav>
+
+
+<aside class="sidebar">
+  <nav class="nav">
+    <p class="ml-5 text-white"><fa-icon class="fa-3x"  [icon]='faLink'></fa-icon></p>
+    <h5 class="ml-4 text-success font-weight-bold">ENLACES</h5>
+    <ul>
+      <li class="active"><a target="_blank" href="https://aemet.es">Meteorología</a></li>
+      <li><a target="_blank" href="https://www.fecaza.com">Federación</a></li>
+      <li><a target="_blank" href="http://laadministracionaldia.inap.es">Normativa</a></li>
+      <li><a target="_blank" href="https://revistajaraysedal.es">Jara y Sedal</a></li>
+      <li><a target="_blank" href="https://www.trofeocaza.com">Trofeo caza</a></li>
+    </ul>
+    <div class="row justify-content-around align-content-center fixed-botton mt-5">
+          <a class="mx-5 btn btn-link" href="https://es-es.facebook.com/"
+            aria-hidden="true" target="_blank">
+              <fa-icon class="fa-2x" [icon]='faFacebook'></fa-icon></a>
+          <a class="mx-5 btn btn-link" href="https://web.whatsapp.com/"
+            aria-hidden="true" target="_blank">
+            <fa-icon class="fa-2x" [icon]='faWhatsapp'></fa-icon></a>
+          <a class="mx-5 btn btn-link" href="https://www.instagram.com/"
+            aria-hidden="true" target="_blank">
+            <fa-icon class="fa-2x" [icon]='faInstagram'></fa-icon></a>
+          <a class="mx-5 btn btn-link" href="mailto:direcciondeemail@prueba.org?subject=Tema&cc=otroemail@pruebas.org&body=Cuerpo del mensaje"
+            aria-hidden="true" target="_blank">
+            <fa-icon class="fa-2x" [icon]='faCorreo'></fa-icon></a>
+    </div>
+  </nav>
+</aside>
+

@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from './shell/header/header.component';
 import { MainComponent } from './shell/main/main.component';
-import { FooterComponent } from './shell/footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -13,7 +12,7 @@ import { MenuComponent } from './shell/menu/menu.component';
 import { AutenticacionService } from '../service/autenticacion.service';
 
 @NgModule({
-  declarations: [ShellComponent, HeaderComponent, MainComponent, FooterComponent, NotFoundComponent, MenuComponent],
+  declarations: [ShellComponent, HeaderComponent, MainComponent, NotFoundComponent, MenuComponent],
   imports: [
     CommonModule,
     RouterModule,

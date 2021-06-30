@@ -20,12 +20,17 @@ import { environment } from 'src/environments/environment';
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: 50%;
+    width: 35%;
+    height: 35%;
     border-radius: 20px;
   }
 
-  img:hover {
+  #widget {
+    width: 30%;
+    height: 30%;
+  }
+
+  img.logo:hover {
     transform: scaleX(-1);
   }
 
