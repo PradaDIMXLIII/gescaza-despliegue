@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
+                                     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+                 version="1.0">
+     
+   <entity class="es.mde.gescaza.entidades.EventoConId" access="FIELD">
+		    <table name="EVENTOS"/>
+		    <!-- No hace falta strategy es el valor por defecto -->
+		    <inheritance strategy="SINGLE_TABLE"/>
+		    <discriminator-column name="TIPO"/>
+		    <attributes>
+			    <id name="id">
+	                <generated-value strategy="IDENTITY"/>
+	            </id>
+		    	<many-to-one name="agenda" optional="false"><!-- fetch="LAZY">-->
+                	<join-column name="agenda" />
+           		</many-to-one>		    	
+		    </attributes>
+	</entity>
+   
+   <entity class="es.mde.gescaza.entidades.CazaConId" access="FIELD">
+   		<discriminator-value>CA</discriminator-value>
+        <attributes>
+        <basic name="idCaza" optional="false"></basic>
+        <basic name="tipoCaza" optional="false">
+                <column length="32"/>
+            </basic>
+            <basic name="precinto" optional="false">
+                <column length="32"/>
+            </basic>
+            <basic name="trofeo" optional="false">
+                <column length="32"/>
+            </basic>
+            <one-to-many name="zonasMarcadas" target-entity="es.mde.gescaza.entidades.ZonaCazaConId" mapped-by="caza">
+            </one-to-many>
+            <one-to-many name="animalesCaza" target-entity="es.mde.gescaza.entidades.PerroConId" mapped-by="caza">
+            </one-to-many>           
+        </attributes>
+    </entity>
+    
+    <entity class="es.mde.gescaza.entidades.CompeticionConId" access="FIELD">
+    	<discriminator-value>CO</discriminator-value>
+        <attributes>
+        	<basic name="idCompeticion"></basic>
+        	<basic name="puesto" optional="false"></basic>
+            <basic name="ranking" optional="false"></basic>
+            <basic name="inscripcion" optional="false">
+                <column length="32"/>
+            </basic>
+            <basic name="nombre" optional="false">
+                <column length="32"/>
+            </basic> 
+            <basic name="mejorasCompeticion" optional="false">
+                <column length="32"/>
+            </basic>           
+        </attributes>
+    </entity>
+    
+    <entity class="es.mde.gescaza.entidades.OcioCulturalConId" access="FIELD">
+    	<discriminator-value>OC</discriminator-value>
+        <attributes>
+        	<basic name="idOcioCultural"></basic>
+        	<basic name="repetir"></basic>
+            <basic name="valoracion" optional="false">
+                <column length="32"/>
+            </basic>
+            <basic name="nombre" optional="false">
+                <column length="32"/>
+            </basic> 
+        	<one-to-one name="acompanante" target-entity="es.mde.gescaza.entidades.PersonaConId">
+            	<join-column name="acompanante"/>
+            </one-to-one>         
+        </attributes>
+    </entity>
+    
+</entity-mappings>

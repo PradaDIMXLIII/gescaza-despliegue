@@ -33,7 +33,7 @@ public class PerroConId extends Perro {
 
 	private String observacionesPerro;
 	private String nombrePerro;
-	
+
 	@Override
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss[.SSS][.SS][.S]", timezone = "UTC")
 	public Instant getFechaNacimiento() {
@@ -52,6 +52,18 @@ public class PerroConId extends Perro {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "nucleoCinologico")
 	private NucleoCinologicoConId nucleoCinologico;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "caza")
+	private CazaConId caza;
+
+	public CazaConId getCaza() {
+		return caza;
+	}
+
+	public void setCaza(CazaConId caza) {
+		this.caza = caza;
+	}
 
 	public NucleoCinologicoConId getNucleoCinologico() {
 		return nucleoCinologico;

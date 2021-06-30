@@ -28,4 +28,16 @@ public class TarjetaDAOImpl implements TarjetaDAOCustom {
 		return tarjetas;
 	}
 
+	@Override
+	public boolean invitarEventoCaza(Long id) {
+		TarjetaInvCazaConId tarjeta = tarjetaDAO.findById(id).get();
+		boolean resultado = false;
+		int numInvitaciones = tarjeta.getNumInvitaciones();
+		if (numInvitaciones > 0) {
+			tarjeta.setNumInvitaciones(numInvitaciones - 1);
+			resultado = true;
+		}
+		return resultado;
+	}
+
 }

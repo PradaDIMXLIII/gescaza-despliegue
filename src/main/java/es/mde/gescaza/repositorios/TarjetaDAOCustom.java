@@ -8,5 +8,7 @@ public interface TarjetaDAOCustom {
 	
 
 	List<TarjetaInvCazaConId> getTarjetasPorNumInvitaciones(int numInvitaciones);
+	
+	boolean invitarEventoCaza(Long id);
 
 }

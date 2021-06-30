@@ -32,5 +32,11 @@ public class TarjetaController {
 
 		return assembler.toCollectionModel(tarjetas);
 	}
+	
+	@GetMapping("/invitarEventoCaza")
+	@ResponseBody
+	public boolean invitarEventoCaza(@RequestParam Long idTarjeta) {
+		return tarjetaDAO.invitarEventoCaza(idTarjeta);
+	}
 
 }

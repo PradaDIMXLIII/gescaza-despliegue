@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+			     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
+			     				     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+			     version="1.0">
+
+    <mapped-superclass class="es.prada.eventos.ZonaCaza" access="FIELD">
+        <attributes>
+            <basic name="localidad" optional="false">
+            	<column length="32"/>
+            </basic>
+            <basic name="nombre" optional="false">
+                <column length="32"/>
+            </basic>
+            <basic name="provincia" optional="false">
+                <column length="32"/>
+            </basic>
+            <one-to-many name="puntosImportantes" target-entity="es.mde.gescaza.entidades.PuntoConId" mapped-by="zonaCazaImp">
+            </one-to-many>
+            <one-to-many name="itinerarioCaza" target-entity="es.mde.gescaza.entidades.PuntoConId" mapped-by="zonaCazaIti">            	
+            </one-to-many>
+            <one-to-many name="coordLimitesZona" target-entity="es.mde.gescaza.entidades.PuntoConId" mapped-by="zonaCazaCoord">
+            </one-to-many>  
+            <transient name="observaciones"/>          
+        </attributes>
+     </mapped-superclass>
+</entity-mappings>

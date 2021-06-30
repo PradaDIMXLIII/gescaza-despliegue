@@ -31,6 +31,9 @@ public class CazadorConId extends Cazador {
 	@Column(unique = true)
 	private Long id;
 
+	@OneToMany(targetEntity = AgendaConId.class)
+	public Collection<AgendaConId> agendas;
+
 	@Override
 	@OneToMany(targetEntity = ArmaConId.class)
 	public Collection<Arma> getArmas() {
@@ -51,7 +54,7 @@ public class CazadorConId extends Cazador {
 
 	@Override
 	@OneToOne(targetEntity = NucleoCinologicoConId.class)
-	//@JoinColumn(name = "NucleoCinologico_ID")
+	// @JoinColumn(name = "NucleoCinologico_ID")
 	public NucleoCinologico getNucleoCinologico() {
 		return super.getNucleoCinologico();
 	}
@@ -62,6 +65,10 @@ public class CazadorConId extends Cazador {
 
 	public CazadorConId() {
 		super();
+	}
+
+	public Collection<AgendaConId> getAgendas() {
+		return agendas;
 	}
 
 	public void addArmaConId(ArmaConId arma) {
@@ -77,6 +84,11 @@ public class CazadorConId extends Cazador {
 	public void setNucleoCinologicoConId(NucleoCinologicoConId nucleoCinologico) {
 		super.setNucleoCinologico(nucleoCinologico);
 		nucleoCinologico.setCazador(this);
+	}
+
+	public void addAgendaConId(AgendaConId agenda) {
+		getAgendas().add(agenda);
+		agenda.setCazador(this);
 	}
 
 }

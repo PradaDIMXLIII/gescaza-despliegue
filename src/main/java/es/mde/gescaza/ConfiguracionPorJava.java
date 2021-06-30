@@ -32,10 +32,12 @@ import org.springframework.web.filter.CorsFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import es.mde.gescaza.entidades.ArmaConId;
+import es.mde.gescaza.entidades.CazaConId;
 import es.mde.gescaza.entidades.CazadorConId;
 import es.mde.gescaza.entidades.PerroConId;
 import es.mde.gescaza.entidades.TarjetaInvCazaConId;
 import es.mde.gescaza.rest.ArmaController;
+import es.mde.gescaza.rest.CazaController;
 import es.mde.gescaza.rest.Mixins;
 import es.mde.gescaza.rest.TarjetaController;
 
@@ -59,6 +61,7 @@ public class ConfiguracionPorJava {
 
 		controllersRegistrados.put(ArmaConId.class, ArmaController.class);
 		controllersRegistrados.put(TarjetaInvCazaConId.class, TarjetaController.class);
+		controllersRegistrados.put(CazaConId.class, CazaController.class);
 
 		return new RepresentationModelProcessor<RepositorySearchesResource>() {
 
