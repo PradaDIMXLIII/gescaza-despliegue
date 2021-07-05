@@ -1,11 +1,8 @@
 package es.mde.gescaza.entidades;
 
-
 import es.prada.eventos.Competicion;
 
 public class CompeticionConId extends EventoConId implements Competicion {
-
-	private Long idCompeticion;
 
 	private String nombre;
 	private String inscripcion;
@@ -20,14 +17,6 @@ public class CompeticionConId extends EventoConId implements Competicion {
 
 	public void setMejorasCompeticion(String mejorasCompeticion) {
 		this.mejorasCompeticion = mejorasCompeticion;
-	}
-
-	public Long getIdCompeticion() {
-		return idCompeticion;
-	}
-
-	public void setIdCompeticion(Long idCompeticion) {
-		this.idCompeticion = idCompeticion;
 	}
 
 	public String getNombre() {

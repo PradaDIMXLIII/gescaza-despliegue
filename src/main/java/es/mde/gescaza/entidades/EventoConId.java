@@ -17,6 +17,26 @@ public class EventoConId extends Evento {
 	@ManyToOne
 	private AgendaConId agenda;
 
+	private String comentariosEvento;
+
+	private String tipoEvent;
+
+	public String getComentariosEvento() {
+		return comentariosEvento;
+	}
+
+	public void setComentariosEvento(String comentariosEvento) {
+		this.comentariosEvento = comentariosEvento;
+	}
+
+	public String getTipoEvent() {
+		return tipoEvent;
+	}
+
+	public void setTipoEvent(String tipoEvent) {
+		this.tipoEvent = tipoEvent;
+	}
+
 	public AgendaConId getAgenda() {
 		return agenda;
 	}
@@ -28,7 +48,7 @@ public class EventoConId extends Evento {
 	public Long getId() {
 		return id;
 	}
-	
+
 	@Override
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss[.SSS][.SS][.S]", timezone = "UTC")
 	public Instant getFechaEvento() {
@@ -41,7 +61,7 @@ public class EventoConId extends Evento {
 
 	@Override
 	public boolean addComentarios(String comentario) {
-		return false;
+		return super.getComentarios().add(comentario);
 	}
 
 }

@@ -3,12 +3,16 @@ package es.mde.gescaza.entidades;
 import java.time.Instant;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -31,7 +35,8 @@ public class CazadorConId extends Cazador {
 	@Column(unique = true)
 	private Long id;
 
-	@OneToMany(targetEntity = AgendaConId.class)
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = AgendaConId.class, 
+			mappedBy = "cazador")
 	public Collection<AgendaConId> agendas;
 
 	@Override
@@ -59,8 +64,21 @@ public class CazadorConId extends Cazador {
 		return super.getNucleoCinologico();
 	}
 
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cazaInvitado")
+	public CazaConId cazaInvitado;
+
 	public Long getId() {
 		return id;
+	}
+
+	public CazaConId getCaza() {
+		return cazaInvitado;
+	}
+
+	public void setCaza(CazaConId cazaInvitado) {
+		this.cazaInvitado = cazaInvitado;
 	}
 
 	public CazadorConId() {

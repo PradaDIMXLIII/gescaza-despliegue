@@ -11,10 +11,10 @@ import es.prada.eventos.ZonaCaza;
 
 public class CazaConId extends EventoConId implements Caza {
 
-	private Long idCaza;
 	private String precinto;
 	private String trofeo;
 	private String tipoCaza;
+	private String cotoCaza;
 
 	@OneToMany
 	private Map<String, ZonaCazaConId> zonasMarcadas;
@@ -22,12 +22,15 @@ public class CazaConId extends EventoConId implements Caza {
 	@OneToMany
 	private Collection<PerroConId> perrosCaza;
 
-	public Long getIdCaza() {
-		return idCaza;
+	@OneToMany
+	private Collection<CazadorConId> personasInvitadas;
+
+	public Collection<CazadorConId> getPersonasInvitadas() {
+		return personasInvitadas;
 	}
 
-	public void setIdCaza(Long idCaza) {
-		this.idCaza = idCaza;
+	public void setPersonasInvitadas(Collection<CazadorConId> personasInvitadas) {
+		this.personasInvitadas = personasInvitadas;
 	}
 
 	public String getTipoCaza() {
@@ -54,6 +57,14 @@ public class CazaConId extends EventoConId implements Caza {
 		this.trofeo = trofeo;
 	}
 
+	public String getCotoCaza() {
+		return cotoCaza;
+	}
+
+	public void setCotoCaza(String cotoCaza) {
+		this.cotoCaza = cotoCaza;
+	}
+
 	public Map<String, ZonaCazaConId> getZonasMarcadas() {
 		return zonasMarcadas;
 	}
@@ -64,6 +75,11 @@ public class CazaConId extends EventoConId implements Caza {
 
 	public CazaConId() {
 		super();
+	}
+
+	public void addPersonaInvitada(CazadorConId personaInvitada) {
+		this.getPersonasInvitadas().add(personaInvitada);
+		personaInvitada.setCaza(this);
 	}
 
 	@Override

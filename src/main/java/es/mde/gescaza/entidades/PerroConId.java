@@ -54,15 +54,15 @@ public class PerroConId extends Perro {
 	private NucleoCinologicoConId nucleoCinologico;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "caza")
-	private CazaConId caza;
+	@JoinColumn(name = "cazaPerros")
+	private CazaConId cazaPerros;
 
 	public CazaConId getCaza() {
-		return caza;
+		return cazaPerros;
 	}
 
-	public void setCaza(CazaConId caza) {
-		this.caza = caza;
+	public void setCaza(CazaConId cazaPerros) {
+		this.cazaPerros = cazaPerros;
 	}
 
 	public NucleoCinologicoConId getNucleoCinologico() {

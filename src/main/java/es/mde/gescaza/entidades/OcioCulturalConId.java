@@ -6,8 +6,6 @@ import es.prada.eventos.OcioCultural;
 
 public class OcioCulturalConId extends EventoConId implements OcioCultural {
 
-	private Long idOcioCultural;
-
 	private String nombre;
 
 	@OneToOne(targetEntity = PersonaConId.class)
@@ -15,14 +13,6 @@ public class OcioCulturalConId extends EventoConId implements OcioCultural {
 
 	private String valoracion;
 	private Boolean repetir;
-
-	public Long getIdOcioCultural() {
-		return idOcioCultural;
-	}
-
-	public void setIdOcioCultural(Long idOcioCultural) {
-		this.idOcioCultural = idOcioCultural;
-	}
 
 	public String getNombre() {
 		return nombre;

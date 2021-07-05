@@ -41,16 +41,16 @@ public class ZonaCazaConId extends ZonaCaza {
 	}
 
 	public CazaConId getCaza() {
-		return caza;
+		return cazaZonas;
 	}
 
-	public void setCaza(CazaConId caza) {
-		this.caza = caza;
+	public void setCaza(CazaConId cazaZonas) {
+		this.cazaZonas = cazaZonas;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "caza")
-	private CazaConId caza;
+	@JoinColumn(name = "cazaZonas")
+	private CazaConId cazaZonas;
 
 	@Override
 	@OneToMany(targetEntity = PuntoConId.class)
