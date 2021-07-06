@@ -47,10 +47,10 @@
                   required minlength="3" maxlength="32" #lugar="ngModel" [ngClass]="{
                   'is-invalid': nombreAgenda.invalid && (nombreAgenda.dirty || nombreAgenda.touched), 'is-valid': !lugar.invalid }" />
                 <div class="text-danger" *ngIf="nombreAgenda.invalid && (nombreAgenda.dirty || nombreAgenda.touched)">
-                      <div *ngIf="nombreAgenda.errors.required">
+                      <div *ngIf="nombreAgenda.required">
                       El nombre es obligatorio
                       </div>
-                      <div *ngIf="nombreAgenda.errors.maxlength">
+                      <div *ngIf="nombreAgenda.maxlength">
                       El lugar de la caza debe tener al menos 3 y máximo 32
                       </div>
                 </div>

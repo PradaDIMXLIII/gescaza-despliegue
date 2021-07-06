@@ -14,13 +14,13 @@
     <p class="card-text">Observaciones:&nbsp;{{ cazador.observaciones }}</p>
     <hr class='w-100 bg-success'>
     <p>
-      <button class="p-1 m-1 btn btn-primary" [disabled]="isNotArmas" type="button" data-toggle="collapse" data-target="#collapseArmas" aria-expanded="false" aria-controls="collapseExample" (click)="cargarArmas(cazador)">
+      <button class="p-1 m-1 btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseArmas" aria-expanded="false" aria-controls="collapseExample" (click)="cargarArmas(cazador)">
         Armas
       </button>
-      <button class="p-1 m-1 btn btn-primary" [disabled]="isNotTarjetas" type="button" data-toggle="collapse" data-target="#collapseTarjetas" aria-expanded="false" aria-controls="collapseExample" (click)="cargarTarjetas(cazador)">
+      <button class="p-1 m-1 btn btn-primary"  type="button" data-toggle="collapse" data-target="#collapseTarjetas" aria-expanded="false" aria-controls="collapseExample" (click)="cargarTarjetas(cazador)">
         Tarjetas
       </button>
-      <button class="p-1 m-1 btn btn-primary" [disabled]="isNotNucleoCinologico" type="button" data-toggle="collapse" data-target="#collapseNucleoCinologico" aria-expanded="false" aria-controls="collapseExample" (click)="cargarNucleoCinologico(cazador)">
+      <button class="p-1 m-1 btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseNucleoCinologico" aria-expanded="false" aria-controls="collapseExample" (click)="cargarNucleoCinologico(cazador)">
         Nucleo Cinologico
       </button>
     </p>
