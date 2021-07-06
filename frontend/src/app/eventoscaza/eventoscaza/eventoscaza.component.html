@@ -40,37 +40,28 @@
     <div class="collapse" id="collapseAgenda">
       <div class="card card-body bg-light rounded">
         <form #agendaForm="ngForm">
-          <div class="form-row py-2">
-            <div class="col-lg-4 col-md-12">
-                <label for="nombre">Nombre:&nbsp;<sup class="text-danger">*</sup></label>
-                <input type="text" class="form-control" [(ngModel)]="nombreAgenda" placeholder="" name="nombreAgenda"
-                  required minlength="3" maxlength="32" #lugar="ngModel" [ngClass]="{
-                  'is-invalid': nombreAgenda.invalid && (nombreAgenda.dirty || nombreAgenda.touched), 'is-valid': !lugar.invalid }" />
-                <div class="text-danger" *ngIf="nombreAgenda.invalid && (nombreAgenda.dirty || nombreAgenda.touched)">
-                      <div *ngIf="nombreAgenda.required">
-                      El nombre es obligatorio
-                      </div>
-                      <div *ngIf="nombreAgenda.maxlength">
-                      El lugar de la caza debe tener al menos 3 y máximo 32
-                      </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <label for="anyo">AÑO:&nbsp;<sup class="text-danger">*</sup></label>
-                <select id="anyo" name="anyo" class="form-control custom-select" [(ngModel)]="anyoAgenda">
-                  <option value="2021" [selected]="true">2021</option>
-                  <option value="2022">2022</option>
-                  <option value="2023">2023</option>
-                  <option value="2024">2024</option>
-                  <option value="2025">2025</option>
-                </select>
-            </div>
-            <div class="col-lg-3 col-md-12 text-center">
-              <button type="button" class="btn btn-info mt-4 p-2" (click)="crearAgenda()" [disabled]="!agendaForm.form.valid">Guardar</button>
-          </div>
-          </div>
+              <div class="form-row py-2">
+                    <div class="col-lg-4 col-md-12">
+                        <label for="nombre">Nombre:&nbsp;<sup class="text-danger">*</sup></label>
+                        <input type="text" class="form-control" [(ngModel)]="nombreAgenda" placeholder="" name="nombreAgenda"
+                          required minlength="3" maxlength="32">
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <label for="anyo">AÑO:&nbsp;<sup class="text-danger">*</sup></label>
+                        <select id="anyo" name="anyo" class="form-control custom-select" [(ngModel)]="anyoAgenda">
+                          <option value="2021" [selected]="true">2021</option>
+                          <option value="2022">2022</option>
+                          <option value="2023">2023</option>
+                          <option value="2024">2024</option>
+                          <option value="2025">2025</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3 col-md-12 text-center">
+                      <button type="button" class="btn btn-info mt-4 p-2" (click)="crearAgenda()" [disabled]="!agendaForm.form.valid">Guardar</button>
+                  </div>
+              </div>
         </form> 
-        </div>
+      </div>
     <hr class='w-100 bg-success'>
   </div>
     
