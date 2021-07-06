@@ -6,5 +6,6 @@ export const environment = {
   password: 'password',
   autenticacion: false,
   appName: 'Gescaza-App',
-  host: 'http://localhost:8083/api/'
+  host: 'http://localhost:8083/api/',
+  host1: 'https://gescaza.herokuapp.com/api/'
 };

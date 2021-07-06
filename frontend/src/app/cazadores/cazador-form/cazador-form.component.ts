@@ -32,7 +32,7 @@ export class CazadorFormComponent implements OnInit {
     let fechaCazador = this.cazador.fechaNacimiento;
     let fechaActualizadaInv = fechaCazador.slice(6,10) + "-" + fechaCazador.slice(3,5) + "-" + fechaCazador.slice(0,2);
     this.cazador.fechaNacimiento = fechaActualizadaInv;
-    console.log(this.cazador.fechaNacimiento);
+   // console.log(this.cazador.fechaNacimiento);
   }
 
   actualizarFecha(): string {
@@ -43,7 +43,7 @@ export class CazadorFormComponent implements OnInit {
 
   create(): void {
     this.cazador.fechaNacimiento = this.actualizarFecha();
-    console.log(this.cazador.fechaNacimiento);
+    //console.log(this.cazador.fechaNacimiento);
     this.cazadorService.create(this.cazador).subscribe((response) => {
       //console.log(`He creado el cazador ${this.cazador.nombre}`);
       this.router.navigate(['/cazadores']);
@@ -59,7 +59,7 @@ export class CazadorFormComponent implements OnInit {
   actualizar(): void {
     this.cazador.fechaNacimiento = this.actualizarFecha();
     this.cazadorService.update(this.cazador).subscribe((response) => {
-      console.log(`He actualizado el cazador ${this.cazador.nombre}`);
+      //console.log(`He actualizado el cazador ${this.cazador.nombre}`);
       this.router.navigate(['/cazadores']);
     })
   }

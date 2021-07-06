@@ -17,11 +17,8 @@
             <basic name="horaEvento" optional="false">
                 <column length="32"/>
             </basic>
-            <basic name="tipoEvento" optional="false"></basic>
-            <basic name="comentarios_evento" optional="false"></basic>            
-            <one-to-one name="personaInvitada" target-entity="es.mde.gescaza.entidades.CazadorConId">
-            	<join-column name="personaInvitada"/>
-            </one-to-one>
+            <transient name="tipoEvento"/> 
+            <transient name="personaInvitada"/>
             <transient name="comentarios"/>
         </attributes>
      </mapped-superclass>

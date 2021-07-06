@@ -3,6 +3,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Arma } from '../../models/arma';
 import { Cazador } from '../../models/cazador';;
 import { NucleoCinologico } from '../../models/nucleo-cinologico';
+import { NucleoCinologicoImpl } from '../../models/nucleo-cinologico-impl';
 import { Tarjeta } from '../../models/tarjeta';
 import { CazadorService } from '../../service/cazador-service';
 
@@ -14,7 +15,6 @@ import { CazadorService } from '../../service/cazador-service';
 export class CazadorComponent implements OnInit {
   @Input() cazador: Cazador;
   @Output() cazadorEliminar = new EventEmitter<Cazador>();
- // @Output() cazadorSeleccionado = new EventEmitter<Cazador>();
   @Output() cazadorEditar = new EventEmitter<Cazador>();
   faUser = faUser;
 
@@ -26,48 +26,51 @@ export class CazadorComponent implements OnInit {
 
   constructor(private cazadorService: CazadorService) { }
 
-  ngOnInit():void {
-    //console.log(this.cazador);
-    this.cargarDatosCazador();
-   // this.cogerFechaNacimiento();
+  ngOnInit() {
   }
 
-  cogerFechaNacimiento():string {
-    let fecha: string = this.cazador.fechaNacimiento.slice(0, 10);
+
+  cogerFecha(fechaParametro: string):string {
+    let fecha: string = fechaParametro.slice(0, 10);
     return fecha;
   }
 
   eliminar():void {
-    this.cazadorEliminar.emit(this.cazador);
+    if (confirm('¿Está seguro?')) {
+      this.cazadorEliminar.emit(this.cazador);
+    }
   }
 
   editar():void {
     this.cazadorEditar.emit(this.cazador);
   }
 
-  cargarDatosCazador():void {
-    this.cargarNucleoCinologico();
-    this.cargarArmas();
-    this.cargarTarjetas();
+
+  cargarNucleoCinologico(cazador: Cazador): void{
+  this.nucleoCinologico = new NucleoCinologicoImpl();
+  this.nucleoCinologico.nombre = " ";
+  setTimeout(()=> {
+      this.cazadorService.getNucleoCinologicoCazador(cazador.nucleoCinologicoHref).subscribe((response) => {
+      this.nucleoCinologico = this.cazadorService.extraerNucleoCinologico(response);
+  });
+   
+  }, 500);
+}
+
+  
+
+  cargarArmas(cazador: Cazador): void {
+    this.armas = [];
+    this.cazadorService.getArmasCazador(cazador.armasHref).subscribe((response) => {
+      this.armas = this.cazadorService.extraerArmasCazador(response);
+  });   
   }
 
-  cargarNucleoCinologico(): void{
-   // console.log(this.cazador);
-    this.cazadorService.getNucleoCinologicoCazador(this.cazador.nucleoCinologicoHref).subscribe((response) =>
-    this.nucleoCinologico = this.cazadorService.extraerNucleoCinologico(response));
-    //console.log(this.nucleoCinologico);
-  }
-
-  cargarArmas(): void {
-    this.cazadorService.getArmasCazador(this.cazador.armasHref).subscribe((response) =>
-    this.armas = this.cazadorService.extraerArmasCazador(response));
-    //console.log(this.armas);
-  }
-
-  cargarTarjetas(): void {
-    this.cazadorService.getTarjetasCazador(this.cazador.tarjetasHref).subscribe((response) =>
-    this.tarjetas = this.cazadorService.extraerTarjetasCazador(response));
-    //console.log(this.tarjetas);
+  cargarTarjetas(cazador: Cazador): void {
+    this.tarjetas = [];
+    this.cazadorService.getTarjetasCazador(cazador.tarjetasHref).subscribe((response) => {
+    this.tarjetas = this.cazadorService.extraerTarjetasCazador(response)
+  }); 
   }
 
 }

@@ -1,6 +1,7 @@
+import { PersonaInvitada } from "./persona-invitada";
 
-export interface Cazador {
-  cazadorId: string;
+export class PersonaInvitadaImpl implements PersonaInvitada {
+  personaInvitadaId: string;
   nombre: string;
   apellidos: string;
   dni: string;
@@ -12,5 +13,10 @@ export interface Cazador {
   nucleoCinologicoHref: string;
   tarjetasHref: string;
   armasHref: string;
+  agendasHref: string;
+  cazaInvitadoHref: string;
   cazaInvitado: string;
+
+  constructor() {}
+  
 }

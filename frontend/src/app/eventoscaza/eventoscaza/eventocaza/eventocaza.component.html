@@ -1,0 +1,82 @@
+
+<div class="card">
+  <div class="card-header text-center">
+    <fa-icon class="fa-2x" [icon]='faPerro'></fa-icon>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title text-success bg-light text-center"><b>{{ cogerFechaEvento() }}</b></h4>
+    <p class="card-text"><b>Tipo Caza:
+      {{eventoCaza.tipoCaza | uppercase}}</b>
+    </p>
+    <p class="card-text">Hora Evento:&nbsp;{{ eventoCaza.horaEvento }}</p>
+    <p class="card-text">Lugar:&nbsp;{{ eventoCaza.lugar }}&nbsp;({{ eventoCaza.ciudad }})</p>
+    <div class="p-0" *ngIf="personasInvitadas.length > 0; else NoPersonasInvitadas">
+      <p class="card-text" *ngFor="let persona of personasInvitadas">Persona invitada:&nbsp; {{ persona.nombre }} &nbsp; {{ persona.apellidos }} </p>
+    </div>    
+    <ng-template #NoPersonasInvitadas>
+      <p class="card-text">NO existen personas invitadas</p>
+    </ng-template>
+    <p class="card-text">Precinto:&nbsp;{{ eventoCaza.precinto }}</p>
+    <p class="card-text">Trofeo:&nbsp;{{ eventoCaza.trofeo }}</p>
+    <p class="card-text">Observaciones:&nbsp;{{ eventoCaza.comentariosEvento}}</p>
+    <hr class='w-100 bg-success'>
+    <p>
+      <button class="p-1 m-1 btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseZonasMarcadas" aria-expanded="false" aria-controls="collapseExample">
+        Zonas Marcadas
+      </button>
+      <button class="p-1 m-1 btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsePerros" aria-expanded="false" aria-controls="collapseExample">
+        Perros
+      </button>
+    </p>
+    <div class="collapse" id="collapseZonasMarcadas">
+      <div class="card-group" *ngIf="zonasMarcadas.length > 0; else elseZonasMarcadas">
+        <div *ngFor="let zona of zonasMarcadas">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title"><b>Zonas de Caza marcadas</b></h4>
+                <h4 class="card-title">{{ zona.nombre | uppercase }}</h4>
+                <p class="card-text">{{ zona.localidad }}&nbsp;({{ zona.provincia }})</p>
+                <p class="card-text"></p>
+                <p class="card-text">{{ zona.puntosImportantesHref }}</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <ng-template #elseZonasMarcadas>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><b>NO EXISTEN</b> "ZONAS MARCADAS"</h4>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="collapse" id="collapsePerros">
+      <div class="card-group" *ngIf="perros.length > 0; else elsePerros">
+        <div *ngFor="let perro of perros">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title"><b>Perros de Caza</b></h4>
+                <h4 class="card-title">{{ perro.nombrePerro | uppercase }}</h4>
+                <p class="card-text">Nivel Adiestramiento:&nbsp;{{ perro.nivelAdiestramiento }}</p>
+                <p class="card-text">Observaciones:&nbsp;{{ perro.observaciones }}</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <ng-template #elsePerros>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><b>NO HAY</b> "PERROS de Caza"</h4>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+
+
+  </div>
+</div>
+
+<button type="button" class="p-1 m-1 btn btn-outline-danger" (click)="eliminar()">Eliminar</button>
+<button type="button" class="p-1 m-1 btn btn-outline-secondary" data-dismiss="modal" (click)="editar()">Editar</button>
+

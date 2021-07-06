@@ -17,8 +17,8 @@
             <basic name="observaciones" optional="false"></basic>
             <one-to-many name="armas" target-entity="es.mde.gescaza.entidades.ArmaConId" mapped-by="cazador">
             </one-to-many>
-            <one-to-many name="agendas" target-entity="es.mde.gescaza.entidades.AgendaConId" mapped-by="cazador">
-            </one-to-many>
+            <!--  <one-to-many name="agendas" target-entity="es.mde.gescaza.entidades.AgendaConId" mapped-by="cazador">
+            </one-to-many>-->
             <one-to-many name="tarjetas" target-entity="es.mde.gescaza.entidades.TarjetaInvCazaConId" mapped-by="cazador">
             </one-to-many>
             <one-to-one name="nucleoCinologico" target-entity="es.mde.gescaza.entidades.NucleoCinologicoConId">

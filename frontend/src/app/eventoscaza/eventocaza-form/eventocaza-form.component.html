@@ -1,0 +1,182 @@
+<form #cazadorForm="ngForm">
+  <div class="form-row py-2">
+      <div class="col-lg-4 col-md-12">
+        <label>Cazador: <sup class="text-danger">*</sup></label>
+        <select id="cazador" name="cazador" class="form-control custom-select" (change)="cargarTarjetasCazador()" [(ngModel)]="idCazadorSeleccionado">
+          <option *ngFor="let cazador of cazadores" [value]="cazador.cazadorId">
+            <span>{{cazador.nombre}}</span>&nbsp;<span>{{ cazador.apellidos }}</span>
+          </option>
+        </select>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <label>Agenda: <sup class="text-danger">*</sup></label>
+        <select id="Agenda" name="Agenda" class="form-control custom-select" [(ngModel)]="idAgendaSeleccionada">
+          <option *ngFor="let agenda of agendas" [value]="agenda.agendaId">
+            <span>{{agenda.anyo}}</span>&nbsp;<span>{{ agenda.nombre }}</span>
+          </option>
+        </select>
+      </div>
+      <div class="col-lg-4 col-md-12">
+            <label>Tipo de Caza: <sup class="text-danger">*</sup></label>
+            <select id="tipoCaza" name="tipoCaza" required class="form-control custom-select" [(ngModel)]="eventoCaza.tipoCaza">
+              <option value="CAZA MENOR -al salto-"  selected>CAZA MENOR -al salto-</option>
+              <option value="CAZA MENOR -puesto-">CAZA MENOR -puesto-</option>
+              <option value="CAZA MAYOR -al salto-">CAZA MAYOR -al salto-</option>
+              <option value="CAZA MAYOR -puesto-">CAZA MAYOR -puesto-</option>
+              <option value="CAZA MAYOR -batida-">CAZA MAYOR -batida-</option>
+            </select>
+      </div>
+  </div>
+  <div class="form-row py-2">
+      <div class="col-lg-4 col-md-12">
+          <label>Lugar: <sup class="text-danger">*</sup></label>
+          <input type="text" class="form-control" [(ngModel)]="eventoCaza.lugar" placeholder="Lugar Caza" name="lugar"
+            required minlength="3" maxlength="32" #lugar="ngModel" [ngClass]="{
+            'is-invalid': lugar.invalid && (lugar.dirty || lugar.touched), 'is-valid': !lugar.invalid }" />
+          <div class="text-danger" *ngIf="lugar.invalid && (lugar.dirty || lugar.touched)">
+                <div *ngIf="lugar.errors.required">
+                El lugar es obligatorio
+                </div>
+                <div *ngIf="lugar.errors.minlength">
+                El lugar de la caza debe tener al menos 3 y máximo 32
+                </div>
+          </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+          <label>Ciudad: <sup class="text-danger">*</sup></label>
+          <input type="text" class="form-control" [(ngModel)]="eventoCaza.ciudad" placeholder="Ciudad" name="ciudad"
+          required minlength="4" maxlength="32" #ciudad="ngModel" [ngClass]="{
+            'is-invalid': ciudad.invalid && (ciudad.dirty || ciudad.touched), 'is-valid': !ciudad.invalid }" />
+          <div class="text-danger" *ngIf="ciudad.invalid && (ciudad.dirty || ciudad.touched)">
+              <div *ngIf="ciudad.errors.required">
+                La ciudad es obligatoria
+              </div>
+              <div *ngIf="ciudad.errors.minlength">
+              La ciudad debe tener al menos 4 y máximo 32
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <label>Hora: <sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" [(ngModel)]="eventoCaza.horaEvento" placeholder="HH:MMh" name="hora"
+            required minlength="6" maxlength="6" #hora="ngModel" [ngClass]="{
+            'is-invalid': hora.invalid && (hora.dirty || hora.touched), 'is-valid': !hora.invalid }" />
+        <div class="text-danger" *ngIf="hora.invalid && (hora.dirty || hora.touched)">
+              <div *ngIf="hora.errors.required">
+                La hora es obligatoria
+              </div>
+              <div *ngIf="hora.errors.minlength">
+                La hora debe tener 6 caracteres
+              </div>
+        </div>
+      </div>
+  </div>
+
+
+
+<div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+        <label>Precinto: <sup class="text-danger">*</sup></label>
+        <select id="precinto" name="precinto" required class="form-control custom-select" [(ngModel)]="eventoCaza.precinto">
+          <option value="SIN PRECINTO" [selected]="true">SIN PRECINTO</option>
+          <option value="Corzo">CORZO</option>
+          <option value="Ciervo">CIERVO</option>
+        </select>
+    </div>
+    <div class="col-lg-4 col-md-12">
+          <label>Trofeo:</label>
+          <input type="text" class="form-control" [(ngModel)]="eventoCaza.trofeo" placeholder="Trofeo de la Caza" name="trofeo"
+              required minlengt="5" maxlength="32" #trofeo="ngModel" [ngClass]="{
+              'is-invalid': trofeo.invalid && (trofeo.dirty || trofeo.touched), 'is-valid': !trofeo.invalid }" />
+          <div class="text-danger" *ngIf="trofeo.invalid && (trofeo.dirty || trofeo.touched)">
+                <div *ngIf="trofeo.errors.maxlength">
+                  El trofeo debe tener como máximo 32 caracteres
+                </div>
+          </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+          <label>Fecha Evento: <sup class="text-danger"></sup></label>
+          <input type="date" class="form-control" [(ngModel)]="eventoCaza.fechaEvento" placeholder="dd-MM-yyyy HH:mm:ss.000.00.0"
+                required name="fechEvento" #fechEvento="ngModel" [ngClass]="{
+                'is-invalid': fechEvento.invalid && (fechEvento.dirty || fechEvento.touched), 'is-valid': !fechEvento.invalid }" />
+          <div class="text-danger" *ngIf="fechEvento.invalid && (fechEvento.dirty || fechEvento.touched)">
+              <div *ngIf="fechEvento.errors.required">
+                  La Fecha del evento es obligatoria
+              </div>
+          </div>
+    </div>
+  </div>
+
+  <div class="form-row py-2">
+    <div class="col-lg-4 col-md-12">
+      <label>Coto Caza: <sup class="text-danger">*</sup></label>
+      <select id="cotoCaza" name="cotoCaza" required class="form-control custom-select" [(ngModel)]="eventoCaza.cotoCaza">
+        <option value="CALATAYUD" [selected]="true">CALATAYUD</option>
+        <option value="MUNEBREGA">MUNEBREGA</option>
+        <option value="ATECA">ATECA</option>
+        <option value="PARACUELLOS">PARACUELLOS</option>
+        <option value="VELILLA">VELILLA</option>
+      </select>
+    </div>
+    <div class="col-lg-4 col-md-12">
+          <label>Comentarios: <sup class="text-danger">*</sup></label>
+          <input type="text" class="form-control" [(ngModel)]="eventoCaza.comentariosEvento" placeholder="Comentarios del cazador" name="obs"
+            minlength="2" maxlength="32" #obs="ngModel" [ngClass]="{
+            'is-invalid': obs.invalid && (obs.dirty || obs.touched), 'is-valid': !obs.invalid }" />
+          <div class="text-danger" *ngIf="obs.invalid && (obs.dirty || obs.touched)">
+                <div *ngIf="obs.errors.maxlength">
+                    Los Comentarios del Cazador debe tener como máximo 32 caracteres
+                </div>
+          </div>
+    </div>
+  </div>
+
+  <div class="form-row py-2 bg-light border rounded border-warning mt-5">
+      <div class="col-lg-4 col-md-12">
+          <label>Persona Invitada: <sup class="text-danger">*</sup></label>
+          <select id="personaInvitada" name="personaInvitada" [disabled]="boton" class="form-control custom-select" [(ngModel)]="idPersonaInvitada" (change)="verificarInvitacion()">
+            <option *ngFor="let cazador of cazadores" [value]="cazador.cazadorId">
+              <span>{{cazador.nombre}}</span>&nbsp;<span>{{ cazador.apellidos }}</span>
+            </option>
+          </select>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <label>Tarjetas de Invitación de Caza: <sup class="text-danger">*</sup></label>
+        <select id="tarjeta" name="tarjeta" [disabled]="boton" class="form-control custom-select"  *ngIf="this.tarjetas.length != 0; else elseTarjetas"  [(ngModel)]="idTarjetaSeleccionada" (change)="verificarInvitacion()">
+          <option *ngFor="let tarjeta of tarjetas" [value]="tarjeta.tarjetaEventoId">
+            <span>{{ tarjeta.nombre }}</span><span>&nbsp; Num. Invitaciones:&nbsp;{{ tarjeta.numInvitaciones }}</span>
+          </option>
+        </select>
+        <ng-template #elseTarjetas>
+          <select class="form-control custom-select" >
+            <option value="">No tiene tarjetas</option>
+          </select>
+        </ng-template>
+      </div>
+      <div class="col-lg-2 col-md-12 p-2 mt-4">
+        <button class="btn btn-warning" role="button" [disabled]="isNoInvitar" (click)="invitar(idTarjetaSeleccionada)">
+          Invitar
+        </button>
+      </div>
+      <div class="col-lg-2 col-md-12 p-2 mt-1 text-center align-content-start bg-white rounded">
+          <h6 class="text-info">Resultado:</h6>
+          <p id="resultadoInvitacion" class=""><em>{{ textoResultadoInvitar }}</em></p>
+      </div>
+  </div>
+
+    <div class="form-row justify-content-between pt-5">
+          <div class="col-lg-5 col-md-12">
+            <button class="btn btn-primary" *ngIf="boton; else modificar" role="button" (click)="create()"
+              [disabled]="!cazadorForm.form.valid">
+              Crear Evento
+            </button>
+            <ng-template #modificar>
+              <button class="btn btn-primary" role="button" (click)="actualizar()" [disabled]="!cazadorForm.form.valid">
+                Actualizar
+              </button>
+            </ng-template>
+          </div>
+    </div>
+
+</form>
+

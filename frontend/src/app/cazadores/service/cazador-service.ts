@@ -44,19 +44,20 @@ export class CazadorService {
   mapearCazador(cazadorApi: any): Cazador {
     //console.log(cazadorApi);
     let cazador: Cazador = new CazadorImpl();
-      cazador.id = this.getId(cazadorApi._links.cazador.href);
-      cazador.nombre = cazadorApi.nombre;
-      cazador.apellidos = cazadorApi.apellidos;
-      cazador.dni = cazadorApi.dni;
-      cazador.fechaNacimiento = cazadorApi.fechaNacimiento;
-      cazador.numSocio = cazadorApi.numSocio;
-      cazador.cotoCaza = cazadorApi.cotoCaza;
-      cazador.clubDeportivo = cazadorApi.clubDeportivo;
-      cazador.observaciones = cazadorApi.observaciones;
-      cazador.nucleoCinologicoHref= cazadorApi._links.nucleoCinologico.href;
-      cazador.tarjetasHref = cazadorApi._links.tarjetas.href;
-      cazador.armasHref = cazadorApi._links.armas.href;
-   // console.log(cazador);
+    cazador.cazadorId = this.getId(cazadorApi._links.cazador.href);
+    cazador.nombre = cazadorApi.nombre;
+    cazador.apellidos = cazadorApi.apellidos;
+    cazador.dni = cazadorApi.dni;
+    cazador.fechaNacimiento = cazadorApi.fechaNacimiento;
+    cazador.numSocio = cazadorApi.numSocio;
+    cazador.cotoCaza = cazadorApi.cotoCaza;
+    cazador.clubDeportivo = cazadorApi.clubDeportivo;
+    cazador.observaciones = cazadorApi.observaciones;
+    cazador.nucleoCinologicoHref = cazadorApi._links.nucleoCinologico.href;
+    cazador.tarjetasHref = cazadorApi._links.tarjetas.href;
+    cazador.armasHref = cazadorApi._links.armas.href;
+    //cazador.cazaInvitado = cazadorApi._links.cazaInvitado.href;
+    // console.log(cazador);
     return cazador;
   }
 
@@ -89,7 +90,7 @@ export class CazadorService {
 
   update(cazador: Cazador): Observable<any> {
     return this.http
-      .put<any>(`${this.urlEndPoint}/${cazador.id}`, cazador)
+      .put<any>(`${this.urlEndPoint}/${cazador.cazadorId}`, cazador)
       .pipe(
         catchError((e) => {
           if (e.status === 400) {
@@ -103,6 +104,7 @@ export class CazadorService {
       );
   }
 
+ 
   getCazador(id: string): Observable<Cazador> {
     return this.http.get<Cazador>(`${this.urlEndPoint}/${id}`).pipe(
       catchError((e) => {
@@ -115,7 +117,14 @@ export class CazadorService {
   }
 
   getNucleoCinologicoCazador(url: string): Observable<any> {
-    return this.http.get<any>(url);
+    return this.http.get<any>(url).pipe(
+      catchError((e) => {
+        if (e.status !== 401 && e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(e);
+      })
+    );
   }
 
   extraerNucleoCinologico(respuestaApi: any): NucleoCinologico {
@@ -127,7 +136,14 @@ export class CazadorService {
   }
 
   getArmasCazador(url: string): Observable<any> {
-    return this.http.get<any>(url);
+    return this.http.get<any>(url).pipe(
+      catchError((e) => {
+        if (e.status !== 401 && e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(e);
+      })
+    );
   }
 
   extraerArmasCazador(respuestaApi: any): Arma[] {
@@ -135,7 +151,7 @@ export class CazadorService {
     respuestaApi._embedded.armas.forEach(a => {
       armas.push(this.mapearArma(a));
     });
-    //console.log(cazadores);
+    //console.log(armas);
     return armas;
   }
 
@@ -146,12 +162,19 @@ export class CazadorService {
     arma.calibre = armaApi.calibre;
     arma.guia = armaApi.guia;
     arma.descripcion = armaApi.descripcion;
-   // console.log(arma);
+    //console.log(arma);
     return arma;
   }
 
   getTarjetasCazador(url: string): Observable<any> {
-    return this.http.get<any>(url);
+    return this.http.get<any>(url).pipe(
+      catchError((e) => {
+        if (e.status !== 401 && e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(e);
+      })
+    );
   }
 
   extraerTarjetasCazador(respuestaApi: any): Tarjeta[] {
@@ -170,9 +193,7 @@ export class CazadorService {
     tarjeta.cotoCaza = tarjetaApi.cotoCaza;
     tarjeta.fechaVencimiento = tarjetaApi.fechaVencimiento;
     tarjeta.numInvitaciones = tarjetaApi.numInvitaciones;
-   // console.log(arma);
+    // console.log(arma);
     return tarjeta;
   }
-
-
 }

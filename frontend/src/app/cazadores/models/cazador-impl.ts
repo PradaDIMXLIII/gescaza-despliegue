@@ -1,7 +1,7 @@
 import { Cazador } from "./cazador";
 
 export class CazadorImpl implements Cazador {
-  id: string;
+  cazadorId: string;
   nombre: string;
   apellidos: string;
   dni: string;
@@ -13,6 +13,7 @@ export class CazadorImpl implements Cazador {
   nucleoCinologicoHref: string;
   tarjetasHref: string;
   armasHref: string;
+  cazaInvitado: string;
 
   constructor() {}
 

@@ -16,15 +16,17 @@
 	            </id>
 		    	<many-to-one name="agenda" optional="false"><!-- fetch="LAZY">-->
                 	<join-column name="agenda" />
-           		</many-to-one>		    	
+           		</many-to-one>	           		    	
 		    </attributes>
 	</entity>
    
    <entity class="es.mde.gescaza.entidades.CazaConId" access="FIELD">
    		<discriminator-value>CA</discriminator-value>
         <attributes>
-        <basic name="idCaza" optional="false"></basic>
-        <basic name="tipoCaza" optional="false">
+        	<basic name="cotoCaza" optional="false">
+                <column length="32"/>
+            </basic>
+        	<basic name="tipoCaza" optional="false">
                 <column length="32"/>
             </basic>
             <basic name="precinto" optional="false">
@@ -33,17 +35,19 @@
             <basic name="trofeo" optional="false">
                 <column length="32"/>
             </basic>
-            <one-to-many name="zonasMarcadas" target-entity="es.mde.gescaza.entidades.ZonaCazaConId" mapped-by="caza">
+            <one-to-many name="zonasMarcadas" target-entity="es.mde.gescaza.entidades.ZonaCazaConId" mapped-by="cazaZonas">
             </one-to-many>
-            <one-to-many name="animalesCaza" target-entity="es.mde.gescaza.entidades.PerroConId" mapped-by="caza">
-            </one-to-many>           
+            <one-to-many name="perrosCaza" target-entity="es.mde.gescaza.entidades.PerroConId" mapped-by="cazaPerros">
+            </one-to-many>
+            <one-to-many name="personasInvitadas" target-entity="es.mde.gescaza.entidades.CazadorConId" mapped-by="cazaInvitado">
+            </one-to-many>   
+            <transient name="comentarios"/>	        
         </attributes>
     </entity>
     
     <entity class="es.mde.gescaza.entidades.CompeticionConId" access="FIELD">
     	<discriminator-value>CO</discriminator-value>
         <attributes>
-        	<basic name="idCompeticion"></basic>
         	<basic name="puesto" optional="false"></basic>
             <basic name="ranking" optional="false"></basic>
             <basic name="inscripcion" optional="false">
@@ -61,7 +65,6 @@
     <entity class="es.mde.gescaza.entidades.OcioCulturalConId" access="FIELD">
     	<discriminator-value>OC</discriminator-value>
         <attributes>
-        	<basic name="idOcioCultural"></basic>
         	<basic name="repetir"></basic>
             <basic name="valoracion" optional="false">
                 <column length="32"/>

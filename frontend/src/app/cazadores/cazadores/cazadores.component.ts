@@ -24,7 +24,7 @@ export class CazadoresComponent implements OnInit {
     this.cazadorService.getCazadores().subscribe((response) => {
       this.cazadores = this.cazadorService.extraerCazadores(response);
     });
-    console.log(this.cazadores);
+   // console.log(this.cazadores);
   }
 
   verDatos(cazador: Cazador): void {
@@ -33,8 +33,8 @@ export class CazadoresComponent implements OnInit {
   }
 
   onCazadorEliminar(cazador: Cazador): void {
-    console.log(`He eliminado a ${cazador.nombre}`);
-    this.cazadorService.delete(cazador.id).subscribe(response => {
+    //console.log(`He eliminado a ${cazador.nombre}`);
+    this.cazadorService.delete(cazador.cazadorId).subscribe(response => {
       //console.log(response);
       this.router.navigate(['cazadores']);
       location.reload();
@@ -48,12 +48,9 @@ export class CazadoresComponent implements OnInit {
   }
 
   onCazadorEditar(cazador: Cazador): void {
-    let url = `cazadores/formulario/${cazador.id}`;
+    let url = `cazadores/formulario/${cazador.cazadorId}`;
     //console.log(url);
     //location.reload();
     this.router.navigate([url]);
   }
-
-
-
 }
