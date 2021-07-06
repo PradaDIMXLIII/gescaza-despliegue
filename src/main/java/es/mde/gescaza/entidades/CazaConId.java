@@ -79,7 +79,7 @@ public class CazaConId extends EventoConId implements Caza {
 
 	public void addPersonaInvitada(CazadorConId personaInvitada) {
 		this.getPersonasInvitadas().add(personaInvitada);
-		personaInvitada.setCaza(this);
+		personaInvitada.setCazaInvitado(this);
 	}
 
 	@Override

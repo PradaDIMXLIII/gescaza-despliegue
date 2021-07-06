@@ -35,8 +35,7 @@ public class CazadorConId extends Cazador {
 	@Column(unique = true)
 	private Long id;
 
-	@OneToMany(cascade = CascadeType.ALL, targetEntity = AgendaConId.class, 
-			mappedBy = "cazador")
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = AgendaConId.class, mappedBy = "cazador")
 	public Collection<AgendaConId> agendas;
 
 	@Override
@@ -64,7 +63,6 @@ public class CazadorConId extends Cazador {
 		return super.getNucleoCinologico();
 	}
 
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cazaInvitado")
 	public CazaConId cazaInvitado;
@@ -73,11 +71,11 @@ public class CazadorConId extends Cazador {
 		return id;
 	}
 
-	public CazaConId getCaza() {
+	public CazaConId getCazaInvitado() {
 		return cazaInvitado;
 	}
 
-	public void setCaza(CazaConId cazaInvitado) {
+	public void setCazaInvitado(CazaConId cazaInvitado) {
 		this.cazaInvitado = cazaInvitado;
 	}
 

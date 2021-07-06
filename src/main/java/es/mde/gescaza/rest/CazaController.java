@@ -30,9 +30,9 @@ public class CazaController {
 	public CollectionModel<PersistentEntityResource> getCazasPorFecha(@RequestParam Instant fecha,
 			PersistentEntityResourceAssembler assembler) {
 
-		List<CazaConId> cazas = cazaDAO.getCazasPorFecha(fecha);
+		List<CazaConId> cazasFecha1 = cazaDAO.getCazasPorFecha(fecha);
 
-		return assembler.toCollectionModel(cazas);
+		return assembler.toCollectionModel(cazasFecha1);
 	}
 
 	@GetMapping("/porFechaPosterior")
@@ -40,9 +40,9 @@ public class CazaController {
 	public CollectionModel<PersistentEntityResource> getCazasPorFechaPosterior(@RequestParam Instant fecha,
 			PersistentEntityResourceAssembler assembler) {
 
-		List<CazaConId> cazas = cazaDAO.getCazasPorFechaPosterior(fecha);
+		List<CazaConId> cazasFecha2 = cazaDAO.getCazasPorFechaPosterior(fecha);
 
-		return assembler.toCollectionModel(cazas);
+		return assembler.toCollectionModel(cazasFecha2);
 	}
 
 }
